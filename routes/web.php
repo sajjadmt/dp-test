@@ -14,5 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $report = new \App\Models\Report(new \App\Models\ExcelReport());
+    $report = new \App\Models\Report(new \App\Models\PdfReport());
+    return $report->report();
 });
